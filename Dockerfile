@@ -4,6 +4,8 @@ MAINTAINER Rene Pietzsch <rene.pietzsch@eccenca.com>
 
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
+ENV LNG de
+ENV XMX 8G
 
 # update ubuntu trusty
 RUN \
@@ -25,10 +27,15 @@ RUN \
   apt-get install -y oracle-java8-installer
 
 RUN mkdir /FOX
+ADD FOX /FOX
 WORKDIR /FOX
-RUN git clone https://github.com/AKSW/FOX.git /FOX
-RUN ./build.sh
+# RUN git clone https://github.com/AKSW/FOX.git /FOX
+RUN mvn package
+# RUN ./build.sh
 WORKDIR /FOX/release
 RUN cp fox.properties-dist fox.properties
+ADD learn-and-run-fox.sh /FOX/release/learn-and-run-fox.sh
+
+CMD ./learn-and-run-fox.sh
 
 EXPOSE 4444

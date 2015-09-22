@@ -1,12 +1,15 @@
 .SILENT:
 
-VERSION=testing
+VERSION=$(shell cd FOX; git describe --always --dirty)
 
 default: help
 
 ## build a fox docker container
 build:
 	docker build -t fox:$(VERSION) .
+
+tag:
+	docker tag fox:testing rpietzsch/fox:$(VERSION)
 
 ## This help screen
 help:

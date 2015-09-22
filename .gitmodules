@@ -1,0 +1,3 @@
+[submodule "FOX"]
+	path = FOX
+	url = https://github.com/AKSW/FOX.git
