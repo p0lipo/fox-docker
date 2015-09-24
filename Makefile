@@ -1,6 +1,7 @@
 .SILENT:
 
 VERSION=$(shell cd FOX; git describe --always --dirty)
+THIS_VERSION=$(shell git describe --always --dirty)
 
 default: help
 
@@ -9,7 +10,7 @@ build:
 	docker build -t fox:$(VERSION) .
 
 tag:
-	docker tag fox:testing rpietzsch/fox:$(VERSION)
+	docker tag fox:testing rpietzsch/fox:$(THIS_VERSION)
 
 ## This help screen
 help:
