@@ -35,7 +35,8 @@ RUN mvn package
 WORKDIR /FOX/release
 RUN cp fox.properties-dist fox.properties
 ADD learn-and-run-fox.sh /FOX/release/learn-and-run-fox.sh
+RUN chmod +x /FOX/release/learn-and-run-fox.sh
 
-CMD ./learn-and-run-fox.sh
+CMD /FOX/release/learn-and-run-fox.sh
 
 EXPOSE 4444
