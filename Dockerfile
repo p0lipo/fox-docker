@@ -29,9 +29,7 @@ RUN \
 RUN mkdir /FOX
 ADD FOX /FOX
 WORKDIR /FOX
-# RUN git clone https://github.com/AKSW/FOX.git /FOX
 RUN mvn package
-# RUN ./build.sh
 WORKDIR /FOX/release
 RUN cp fox.properties-dist fox.properties
 ADD learn-and-run-fox.sh /FOX/release/learn-and-run-fox.sh
