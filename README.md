@@ -17,7 +17,7 @@
 
 ## run a fox container
 
-    docker run -d --name my_fox_container -p 4444:4444 rpietzsch/fox:latest
+    docker run -d --name my_fox_container -p 4444:4444 rpietzsch/fox-docker:latest
 
 To configure fox at runtime use the following environment variables, set them `-e <Variable>=<Value>[-e ...[]]
 
@@ -26,4 +26,4 @@ To configure fox at runtime use the following environment variables, set them `-
 
 A sample of a fully run configuration looks like:
 
-    docker run -d --name=my_fox_container -e XMX=7G -e LNG=en -p 8888:4444 rpietzsch/fox:latest
+    docker run -d --name=my_fox_container -e XMX=7G -e LNG=en -p 8888:4444 rpietzsch/fox-docker:latest
